@@ -45,7 +45,6 @@ const GroupChatModal = ({ children }) => {
       );
       setLoading(false);
       setSearchResult(data);
-      console.log(data);
     } catch (error) {
       toast({
         title: "Error Occured!",
