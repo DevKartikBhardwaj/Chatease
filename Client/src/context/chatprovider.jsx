@@ -8,13 +8,13 @@ const ChatProvider = ({ children }) => {
   const [selectedChat, setSelectedChat] = useState();
   const [chats, setChats] = useState([]);
   const [notification, setNotification] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     setUser(userInfo);
-    if (!userInfo) navigate("/");
-    else navigate("/chats");
-  }, [navigate]);
+    // if (!userInfo) navigate("/");
+    // /*else*/ navigate("/chats");
+  }, [/*navigate*/]);
 
   return (
     <ChatContext.Provider

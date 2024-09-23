@@ -15,11 +15,10 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { getSender, getSenderFull } from "../config/chatLogics";
 import ProfileModal from "./Miscellaneous/ProfileModal";
 import UpdateGroupChatModal from "./Miscellaneous/UpdateGroupChatModal";
-import "../styles.css";
 import ScrollableChats from "./ScrollableChats";
 import io from "socket.io-client";
-import Lottie from 'react-lottie';
-import animationData from '../animations/typing.json';
+import Lottie from "react-lottie";
+import animationData from "../animations/typing.json";
 const ENDPOINT = "http://localhost:80";
 var socket, selectedChatCompare;
 
@@ -31,17 +30,18 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [typing, setTyping] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
 
-  const { user, selectedChat, setSelectedChat,notification, setNotification } = chatState();
+  const { user, selectedChat, setSelectedChat, notification, setNotification } =
+    chatState();
 
   const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: animationData,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
-  
+
   const toast = useToast();
 
   const fetchMessages = async () => {
@@ -91,7 +91,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         !selectedChatCompare ||
         selectedChatCompare._id !== newMessageReceived.chat._id
       ) {
-        if(!notification.includes(newMessageReceived)) {
+        if (!notification.includes(newMessageReceived)) {
           setNotification([newMessageReceived, ...notification]);
           setFetchAgain(!fetchAgain);
         }
@@ -144,16 +144,16 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setTyping(true);
       socket.emit("typing", selectedChat._id);
     }
-    let lastTypingTime=new Date().getTime();
-    var timerLength=3000;
-    setTimeout(()=>{
-      var timeNow=new Date().getTime();
-      var timeDiff=timeNow-lastTypingTime;
-      if(timeDiff>=timerLength && typing){
-        socket.emit("stop typing",selectedChat._id);
+    let lastTypingTime = new Date().getTime();
+    var timerLength = 3000;
+    setTimeout(() => {
+      var timeNow = new Date().getTime();
+      var timeDiff = timeNow - lastTypingTime;
+      if (timeDiff >= timerLength && typing) {
+        socket.emit("stop typing", selectedChat._id);
         setTyping(false);
       }
-    },timerLength)
+    }, timerLength);
   };
   return (
     <>
@@ -210,12 +210,28 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 margin="auto"
               />
             ) : (
-              <div className="messages">
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  overflowY: "scroll",
+                  scrollbarWidth: "none",
+                }}
+              >
                 <ScrollableChats messages={messages} />
               </div>
             )}
             <FormControl onKeyDown={sendMessage} isRequired mt={3}>
-              {isTyping ? <Lottie  style={{marginLeft: 0,marginBottom:15}} height={30} width={70} options={defaultOptions}/> : <></>}
+              {isTyping ? (
+                <Lottie
+                  style={{ marginLeft: 0, marginBottom: 15 }}
+                  height={30}
+                  width={70}
+                  options={defaultOptions}
+                />
+              ) : (
+                <></>
+              )}
               <Input
                 variant="filled"
                 bg="#E0E0E0"
