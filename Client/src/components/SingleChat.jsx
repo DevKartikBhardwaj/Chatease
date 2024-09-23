@@ -15,7 +15,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { getSender, getSenderFull } from "../config/chatLogics";
 import ProfileModal from "./Miscellaneous/ProfileModal";
 import UpdateGroupChatModal from "./Miscellaneous/UpdateGroupChatModal";
-import "../styles.css";
+// import "../styles.css";
 import ScrollableChats from "./ScrollableChats";
 import io from "socket.io-client";
 import Lottie from 'react-lottie';
