@@ -8,7 +8,7 @@ import messageRoutes from "./routes/messageRoutes.js";
 import { notFound ,errorHandler} from "./middlewares/errorMiddlewares.js";
 import {Server} from 'socket.io'
 const app=express();
-const PORT=process.env.PORT;
+const PORT=process.env.PORT||3000;
 app.use(express.json())
 app.use(cors())
 connectDatabase();
@@ -27,7 +27,7 @@ const server=app.listen(PORT,()=>{
 const io=new Server(server,{
     pingTimeout:60000,
     cors:{
-        origin:"http://localhost:5173"
+        origin:"https://chatease-frontend-4ips.onrender.com"
     }
 })
 

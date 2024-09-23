@@ -43,7 +43,7 @@ const Login = () => {
           'content-type':'application/json'
         }
       }
-      const {data}=await axios.post("http://localhost/api/user/login",{email,password},config);
+      const {data}=await axios.post("https://chatease-backend-t06s.onrender.com/api/user/login",{email,password},config);
       localStorage.setItem("userInfo",JSON.stringify(data));
       setLoading(false);
       toast({

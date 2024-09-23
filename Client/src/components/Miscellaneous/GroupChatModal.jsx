@@ -40,7 +40,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost/api/user?search=${search}`,
+        `https://chatease-backend-t06s.onrender.com/api/user?search=${search}`,
         config
       );
       setLoading(false);
@@ -71,7 +71,7 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost/api/chat/group",
+        "https://chatease-backend-t06s.onrender.com/api/chat/group",
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),

@@ -69,7 +69,7 @@ const SideDrawer = () => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost/api/user?search=${search}`,
+        `https://chatease-backend-t06s.onrender.com/api/user?search=${search}`,
         config
       );
       setLoading(false);
@@ -95,7 +95,7 @@ const SideDrawer = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost/api/chat",
+        "https://chatease-backend-t06s.onrender.com/api/chat",
         { userId },
         config
       );

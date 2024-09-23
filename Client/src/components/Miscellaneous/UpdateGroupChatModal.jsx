@@ -49,7 +49,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        `http://localhost/api/chat/groupremove`,
+        `https://chatease-backend-t06s.onrender.com/api/chat/groupremove`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -85,7 +85,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        "http://localhost/api/chat/rename",
+        "https://chatease-backend-t06s.onrender.com/api/chat/rename",
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -120,7 +120,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
         },
       };
       const { data } = await axios.get(
-        `http://localhost/api/user?search=${search}`,
+        `https://chatease-backend-t06s.onrender.com/api/user?search=${search}`,
         config
       );
       setLoading(false);
@@ -168,7 +168,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        "http://localhost/api/chat/groupadd",
+        "https://chatease-backend-t06s.onrender.com/api/chat/groupadd",
         {
           chatId: selectedChat._id,
           userId: user1._id,

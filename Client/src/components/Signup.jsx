@@ -46,7 +46,7 @@ const Signup = () => {
       data.append("upload_preset", "chatEase");
       data.append("cloud_name", "dwhf5f08p");
       fetch(
-        "https://api.cloudinary.com/v1_1/dwhf5f08p/image/upload",
+        "https:/https://chatease-backend-t06s.onrender.com/api.cloudinary.com/v1_1/dwhf5f08p/image/upload",
         {
           method: "post",
           body: data,
@@ -104,7 +104,7 @@ const Signup = () => {
           "Content-type":"application/json"
         }
       }
-      const {data}=await axios.post("http://localhost/api/user",{name,email,password,pic},config);
+      const {data}=await axios.post("https://chatease-backend-t06s.onrender.com/api/user",{name,email,password,pic},config);
       localStorage.setItem("userInfo",JSON.stringify(data));
       history("/chats");
       setLoading(false);
