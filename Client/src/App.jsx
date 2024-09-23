@@ -11,20 +11,18 @@ const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Homepage />,
+      element: <ChatProvider><Homepage /></ChatProvider>,
     },
     {
       path: "/chats",
-      element:<Chatpage />,
+      element:<ChatProvider><Chatpage /></ChatProvider>,
     },
   ]);
   
   return (
     
       <div className="App">
-        <ChatProvider>
         <RouterProvider router={router} />
-        </ChatProvider>
       </div>
     
   );

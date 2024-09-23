@@ -3,7 +3,6 @@ import { chatState } from "../context/chatprovider";
 import axios from "axios";
 import {
   Box,
-  Button,
   FormControl,
   IconButton,
   Input,
@@ -19,7 +18,7 @@ import ScrollableChats from "./ScrollableChats";
 import io from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
-const ENDPOINT = "http://localhost:80";
+const ENDPOINT = "https://chatease-backend-t06s.onrender.com";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
